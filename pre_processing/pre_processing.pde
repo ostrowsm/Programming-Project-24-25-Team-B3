@@ -51,7 +51,7 @@ int getDelay(String scheduled, String actual)
 void setup()
 {
 
-  String fileName = "flights2k";
+  String fileName = "flights_full";
   String[] lines = loadStrings(fileName + ".csv");
 
   HashMap<String, ArrayList> airports = new HashMap<String, ArrayList>();
@@ -130,4 +130,9 @@ void setup()
   }
 
   outputDelays.close();
+}
+
+void draw()
+{
+  background(0,0,255);
 }
