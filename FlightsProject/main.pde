@@ -1,7 +1,6 @@
-import java.util.ArrayList;
-import processing.data.Table;
-import processing.data.TableRow;
 
+
+import java.util.ArrayList;
 ArrayList<Flight> flights = new ArrayList<Flight>();
 String startDate = "", endDate = "", airportCode = "";
 boolean buttonPressed = false;
