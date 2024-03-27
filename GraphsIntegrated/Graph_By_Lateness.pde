@@ -64,8 +64,7 @@ void draw2() {
   line(50, 625, 950, 625); // X-axis 
 
   int histogramHeight = 450;
-  int[] intervals = {5, 10, 15, 20, 25, 30, 45, 60, 120, 180, 240, 300, 360, 420, 480,
-                     540, 600, 900, 1200, 1440};
+  int[] intervals = {5, 10, 15, 20, 25, 30, 45, 60, 120, 180, 240, 300, 1440};
   int barWidth = 900 / intervals.length;
 
   int[] intervalCounts = new int[intervals.length]; // array to store counts for each interval
@@ -91,33 +90,42 @@ void draw2() {
 
   // Draw histogram bars
   for (int i = 0; i < intervals.length; i++) {
-    fill(0);
+    fill(17, 216, 230); stroke(128, 128, 128);
     int x = 50 + i * barWidth;
-    int y = 625 - (int) map(intervalCounts[i], 0, maxFrequency, 0, histogramHeight);
     int barHeight = (int) map(intervalCounts[i], 0, maxFrequency, 0, histogramHeight);
-    rect(x, y, barWidth, barHeight);
+    int y = 750 - barHeight;
+    drawGradientRect(x, y, barWidth, barHeight);
 
-    textAlign(CENTER, BOTTOM);
-    textSize(15);
-    fill(255);
-    text(intervalCounts[i], x + barWidth / 2, y - 5);
+    // Check if mouse is over bar
+    if (mouseX >= x && mouseX <= x + barWidth && mouseY >= y && mouseY <= 750) {
+      fill(255);
+      textAlign(CENTER, BOTTOM);
+      text(intervalCounts[i], x + barWidth / 2, y - 5);
+    }
+
     fill(0, 0, 255);
-
     textAlign(CENTER);
-    text(intervals[i], x + barWidth / 2, 645);
+    text(intervals[i], x + barWidth / 2, 770);
+  }
+  
+  fill(255);
+  textAlign(CENTER);
+  for (int i = intervals.length - 1; i >= intervals.length - 4; i--) {
+    int x = 50 + i * barWidth + barWidth / 2;
+    text("(" + intervals[i] / 60 + "hs)", x, 790);
   }
 
-  //axes labels
+  // Axes labels
+  fill(255);
   translate(30, height / 2);
   rotate(-HALF_PI);
-  //textAlign(CENTER, CENTER);
-  textSize(20);
-  text("Number of Planes", 0, 0);
+  textAlign(CENTER, CENTER);
+  text("Number of Planes", 0, 0); //y-axis
   rotate(HALF_PI);
   translate(-30, -height / 2);
 
-  //textAlign(CENTER, BOTTOM);
-  text("Lateness by Minutes", width/2, height-150);
+  textAlign(CENTER, BOTTOM);
+  text("Lateness in minutes", width / 2, height - 10); //x-axis
 }
 
 int extractNumber(String s) { //take out the first num aka delay time
@@ -128,4 +136,14 @@ int extractNumber(String s) { //take out the first num aka delay time
     }
   }
   return 0;
+}
+
+//colourful bars
+void drawGradientRect(int x, int y, int width, int height) {
+  for (int i = 0; i < height; i++) {
+    float inter = map(i, 0, height, 0, 1);
+    int c = lerpColor(color(17, 216, 230), color(255, 120, 0), inter);
+    stroke(c);
+    line(x, y + i, x + width, y + i);
+  }
 }
