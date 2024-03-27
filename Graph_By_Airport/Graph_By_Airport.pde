@@ -57,10 +57,10 @@ void draw() {
                       "SMF","TPA","SNA","PHL","PHX","MSP","DAL","MSY","MCI",
                       "BNA","LAN","PIT","LAS","LAX","MDW","DCA","BOS","IND",
                       "SAN","DTW","EWR","DEN","BUR"};
-  background(255);
+  background(225);
   stroke(128, 128, 128);
   line(50, 50, 50, 750); // Y-axis
-  line(50, 750, 1450, 750); // X-axis
+  line(50, 750, 1310, 750); // X-axis
 
   int histogramHeight = 650;
   int barWidth = 20; 
@@ -81,9 +81,9 @@ void draw() {
   // Draw histogram bars and labels
   for (int i = 0; i < airportCounts.length; i++) {
     fill(17, 216, 230); stroke(128, 128, 128);
-    int x = 50 + i * (barWidth + 5); // Adjust spacing between bars
+    int x = 52 + i * (barWidth + 5); // Adjust spacing between bars
     int barHeight = (int) map(airportCounts[i], 0, maxFrequency, 0, histogramHeight);
-    int y = 750 - barHeight;
+    int y = 751 - barHeight;
     drawGradientRect(x, y, barWidth, barHeight);
 
     // Display count above the bar
