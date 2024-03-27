@@ -131,7 +131,7 @@ void displayMatchingFlights() {
   for (Flight flight : flights) {
     if (flight.matchesCriteria(startDate, endDate, airportCode)) {
       String displayText = flight.iataCodeMarketingAirline + flight.flightNumberMarketingAirline + ": " +
-                           flight.airport.origin + " to " + flight.airport.dest + " on " + flight.dateInfo.flightDate;
+                           flight.airport.origin + " to " + flight.airport.destination + " on " + flight.dateInfo.flightDate;
       if (y < height - 20) { // Simple overflow check
         text(displayText, width / 2, y);
         y += 20;

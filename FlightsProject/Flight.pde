@@ -27,7 +27,7 @@ class Flight {
     String flightDate = convertDate(this.dateInfo.flightDate);
     
     boolean datesMatch = flightDate.compareTo(start) >= 0 && flightDate.compareTo(end) <= 0;
-    boolean airportMatches = this.airport.origin.equalsIgnoreCase(airportCode) || this.airport.dest.equalsIgnoreCase(airportCode);
+    boolean airportMatches = this.airport.origin.equalsIgnoreCase(airportCode) || this.airport.destination.equalsIgnoreCase(airportCode);
     return datesMatch && airportMatches;
   }
   

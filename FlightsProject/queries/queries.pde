@@ -82,9 +82,9 @@ HashSet<Integer> getFlightsByAirportAndDateRange(String airport, String startDat
 
 
 // Add delays, dates and airports as global variables in main and load in setup in main
-HashMap<String, HashSet<Integer>> delays; // minitesDelayed : flights_By_That_DelayedMins
-HashMap<String, HashSet<Integer>> dates; // date : flights_On_That_Date
-HashMap<String, HashSet<Integer>> airports; // airportID : flight_Depature_And_Arrival_From_That_Airport
+HashMap<String, HashSet<Integer>> delays; // minites_Delayed : All_flightIds_By_That_Delayed_Minutes
+HashMap<String, HashSet<Integer>> dates; // date : All_flightIds_On_That_Date
+HashMap<String, HashSet<Integer>> airports; // airportID : All_Depature_And_Arrival_FlightIds_From_That_AirportID
 
 
 void setup()
@@ -94,12 +94,12 @@ void setup()
   //println(delays);
 
   dates = loadQueryData(dataSet + "_dates.txt");
-  //for (var entry : dates.entrySet())
-  //{
-  //  println(entry.getKey());
-  //  println(entry.getValue());
-  //  println("");
-  //}
+  for (var entry : dates.entrySet())
+  {
+    println(entry.getKey());
+    println(entry.getValue());
+    println("");
+  }
 
   airports = loadQueryData(dataSet + "_airports.txt");
   //println(airports);

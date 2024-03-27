@@ -13,6 +13,7 @@ void setup() {
   printKeys();
 }
 
+
 HashMap<String, HashSet<Integer>> loadQueryData(String fileName) {
   String[] lines = loadStrings(fileName);
   HashMap<String, HashSet<Integer>> delays = new HashMap<>();
@@ -36,6 +37,7 @@ HashMap<String, HashSet<Integer>> loadQueryData(String fileName) {
   return delays;
 }
 
+//sorting dekays in ascending order
 void printKeys() {
   List<String> sortedKeys = new ArrayList<>(delays.keySet());
   Collections.sort(sortedKeys, (key1, key2) -> {
@@ -48,6 +50,7 @@ void printKeys() {
     System.out.println(key);
   }
 }
+
 
 void draw() {
   background(255);
@@ -80,7 +83,7 @@ void draw() {
     maxFrequency = Math.max(maxFrequency, count);
   }
 
-  // Draw histogram bars and handle mouse hover
+  // Draw bars and handle mouse hovering
   for (int i = 0; i < intervals.length; i++) {
     fill(17, 216, 230); stroke(128, 128, 128);
     int x = 50 + i * barWidth;
@@ -99,20 +102,28 @@ void draw() {
     textAlign(CENTER);
     text(intervals[i], x + barWidth / 2, 770);
   }
+  
+  fill(0);
+  textAlign(CENTER);
+  for (int i = intervals.length - 1; i >= intervals.length - 4; i--) {
+    int x = 50 + i * barWidth + barWidth / 2;
+    text("(" + intervals[i] / 60 + "hs)", x, 790);
+  }
 
   // Axes labels
   fill(0);
   translate(30, height / 2);
   rotate(-HALF_PI);
   textAlign(CENTER, CENTER);
-  text("Number of Planes", 0, 0);
+  text("Number of Planes", 0, 0); //y-axis
   rotate(HALF_PI);
   translate(-30, -height / 2);
 
   textAlign(CENTER, BOTTOM);
-  text("Lateness in minutes", width / 2, height - 10);
+  text("Lateness in minutes", width / 2, height - 10); //x-axis
 }
 
+//take out first num in each line(delays)
 int extractNumber(String s) {
   String[] parts = s.split("\\D+");
   for (String part : parts) {
@@ -123,6 +134,7 @@ int extractNumber(String s) {
   return 0;
 }
 
+//colourful bars
 void drawGradientRect(int x, int y, int width, int height) {
   for (int i = 0; i < height; i++) {
     float inter = map(i, 0, height, 0, 1);
