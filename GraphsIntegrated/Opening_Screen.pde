@@ -13,6 +13,10 @@ boolean mouseRed = false;
 boolean mouseGreen = false;
 boolean mouseBlue = false;
 
+// Hubert Stanowski fix the clouds
+
+PImage back; 
+
 //Maria Ostrowska
 int buttonX = 250;
 int inputBoxY = 30, inputBoxWidth = 200, inputBoxHeight = 30;
@@ -43,6 +47,7 @@ void setup() {
   frameRate(80);
   size(1000, 800);
   Widget widget1, widget2, widget3;
+  back = loadImage("clouds2.png");
   stdFont=loadFont("Chalkboard-30.vlw");
   textFont(stdFont);
   widget1=new Widget(375, 175,
@@ -84,7 +89,6 @@ void draw() {
     draw2();
   } else if (whichEvent == 0) {
     //Jan
-    PImage back = loadImage("clouds2.png");
     background(135, 206, 235);
     image(back, MIDDLEX, MIDDLEY);
     textFont(stdFont);
