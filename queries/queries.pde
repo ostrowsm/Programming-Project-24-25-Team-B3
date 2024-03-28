@@ -106,5 +106,5 @@ void setup()
 
   //println(getFlightsByAirportAndDate("HNL", "01/10/2022 00:00"));
 
-  println(getFlightsByAirportAndDateRange("HNL", "01/01/2022 00:00", "01/07/2022 00:00"));
+  println(getFlightsByAirportAndDateRange("HNL", "01/01/2022 00:00", "01/12/2022 00:00"));
 }

@@ -13,10 +13,12 @@ boolean mouseRed = false;
 boolean mouseGreen = false;
 boolean mouseBlue = false;
 
+PImage back;
 
 void setup() {
   frameRate(80);
   size(750, 700);
+  back = loadImage("clouds2.png");
   PFont stdFont;
   Widget widget1, widget2, widget3;
   stdFont=loadFont("Chalkboard-30.vlw");
@@ -34,7 +36,7 @@ void setup() {
 }
 
 void draw() {
-  PImage back = loadImage("clouds2.png");
+  
   background(135, 206, 235);
   image(back, MIDDLEX , MIDDLEY);
   for (int i = 0; i<widgetList.size(); i++) {
