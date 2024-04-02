@@ -49,18 +49,18 @@ PImage header, bg, bg2;
 void setup() {
   //Jan
   frameRate(80);
-  size(1000, 800);
+  size(1200, 800);
   Widget widget1, widget2, widget3, widget4;
-  back = loadImage("clouds2.png");
+  back = loadImage("planeBg.jpeg");
   stdFont=loadFont("Chalkboard-30.vlw");
   textFont(stdFont);
-  widget1=new Widget(375, 175,
+  widget1=new Widget(500, 175,
     "Airports", stdFont, EVENT_BUTTON1);
-  widget2=new Widget(600, 375, "Lateness",
+  widget2=new Widget(800, 375, "Lateness",
     stdFont, EVENT_BUTTON2);
-  widget3=new Widget(150, 375, "Date Range",
+  widget3=new Widget(200, 375, "Date Range",
     stdFont, EVENT_BUTTON3);
-  widget4=new Widget(375, 550, "Flights per day",
+  widget4=new Widget(500, 550, "Flights per day",
     stdFont, EVENT_BUTTON4);
   widgetList = new ArrayList();
   widgetList.add(widget1);
@@ -174,19 +174,25 @@ void drawHeader1(int chartTextX, String text) {
 
 int events(int mX, int mY) {
   if (mX > backButtonX && mX < backButtonX + backButtonWidth && mY > backButtonY && mY < backButtonY + backButtonHeight) {
+    windowResize(1200,800);
     return 0;
   } else if (mX > backButton3X && mX < backButton3X + backButtonWidth && mY > backButtonY && mY < backButtonY + backButtonHeight) {
-    windowResize(1000,800);
+    windowResize(1200,800);
     return 0;
   } else if (mX > backButton4X && mX < backButton4X + backButtonWidth && mY > backButtonY && mY < backButtonY + backButtonHeight) {
+    windowResize(1200,800);
     return 0;
   } else if (mX > header1X - 10 && mX < header1X - 10 + header1Width && mY > header1Y - 30 && mY < header1Y - 30 + headerHeight) {
+    windowResize(1000,800);
     return 5;
   } else if (mX > header2X - 10 && mX < header2X - 10 + header2Width && mY > header2Y - 30 && mY < header2Y - 30 + headerHeight) {
+    windowResize(1000,800);
     return 6;
   } else if (mX > backButton1X && mX < backButton1X + backButtonWidth && mY > backButtonY && mY < backButtonY + backButtonHeight) {
+    windowResize(1000,800);
     return 3;
   } else if (mX > backButton2X && mX < backButton2X + backButtonWidth && mY > backButtonY && mY < backButtonY + backButtonHeight) {
+    windowResize(1000,800);
     return 3;
   }
   return 7;
@@ -209,6 +215,7 @@ void mousePressed() {
         return;
       case EVENT_BUTTON2:
         lateness = true;
+        windowResize(1000,800);
         println("button 2!");
         whichEvent = 3;
         return;
@@ -218,6 +225,7 @@ void mousePressed() {
         return;
       case EVENT_BUTTON4:
         flights_per_day = true;
+        windowResize(1000,800);
         println("button 4!");
         whichEvent = 4;
         return;
