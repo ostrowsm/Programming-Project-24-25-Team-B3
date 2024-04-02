@@ -11,13 +11,11 @@ boolean airports1 = false;
 boolean date_range = false;
 boolean lateness = false;
 boolean flights_per_day = false;
-boolean mouseRed = false;
-boolean mouseGreen = false;
-boolean mouseBlue = false;
+
 
 // Hubert Stanowski fix the clouds movement, standardize button locations
 
-PImage back; 
+PImage back;
 
 //Maria Ostrowska
 
@@ -76,19 +74,18 @@ void setup() {
 
 void draw() {
   //Maria Ostrowska
-  if(whichEvent == 1)
+  if (whichEvent == 1)
   {
     windowResize(1500, 825);
     drawHeader1(chartText3X, "Top 50 busiest airports");
     drawBackButton(backButtonX);
     draw3();
-  } else if(whichEvent == 2){
-  
-  } else if(whichEvent == 4){
+  } else if (whichEvent == 2) {
+  } else if (whichEvent == 4) {
     drawHeader(chartText4X, "Total flights per day");
     drawBackButton(backButtonX);
     draw4();
-  } else if (whichEvent == 3)  {
+  } else if (whichEvent == 3) {
     drawHeader(chartTextX, "Charts");
     drawBackButton(backButtonX);
     drawChart1Button();
@@ -169,25 +166,25 @@ void drawHeader1(int chartTextX, String text) {
 
 int events(int mX, int mY) {
   if (mX > backButtonX && mX < backButtonX + backButtonWidth && mY > backButtonY && mY < backButtonY + backButtonHeight) {
-    windowResize(1200,800);
+    windowResize(1200, 800);
     return 0;
   } else if (mX > backButtonX && mX < backButtonX + backButtonWidth && mY > backButtonY && mY < backButtonY + backButtonHeight) {
-    windowResize(1200,800);
+    windowResize(1200, 800);
     return 0;
   } else if (mX > backButtonX && mX < backButtonX + backButtonWidth && mY > backButtonY && mY < backButtonY + backButtonHeight) {
-    windowResize(1200,800);
+    windowResize(1200, 800);
     return 0;
   } else if (mX > header1X - 10 && mX < header1X - 10 + header1Width && mY > header1Y - 30 && mY < header1Y - 30 + headerHeight) {
-    windowResize(1000,800);
+    windowResize(1000, 800);
     return 5;
   } else if (mX > header2X - 10 && mX < header2X - 10 + header2Width && mY > header2Y - 30 && mY < header2Y - 30 + headerHeight) {
-    windowResize(1000,800);
+    windowResize(1000, 800);
     return 6;
   } else if (mX > backButtonX && mX < backButtonX + backButtonWidth && mY > backButtonY && mY < backButtonY + backButtonHeight) {
-    windowResize(1000,800);
+    windowResize(1000, 800);
     return 3;
   } else if (mX > backButtonX && mX < backButtonX + backButtonWidth && mY > backButtonY && mY < backButtonY + backButtonHeight) {
-    windowResize(1000,800);
+    windowResize(1000, 800);
     return 3;
   }
   return 7;
@@ -210,7 +207,7 @@ void mousePressed() {
         return;
       case EVENT_BUTTON2:
         lateness = true;
-        windowResize(1000,800);
+        windowResize(1000, 800);
         println("button 2!");
         whichEvent = 3;
         return;
@@ -220,13 +217,13 @@ void mousePressed() {
         return;
       case EVENT_BUTTON4:
         flights_per_day = true;
-        windowResize(1000,800);
+        windowResize(1000, 800);
         println("button 4!");
         whichEvent = 4;
         return;
       }
     }
-  }else
+  } else
   {
     //Maria Ostrowska
     event = events(mouseX, mouseY);
@@ -248,28 +245,5 @@ void mousePressed() {
       whichEvent = 0;
       break;
     }
-  }
-}
-
-//Jan
-void mouseMoved() {
-  mouseRed = false;
-  mouseGreen = false;
-  mouseBlue = false;
-
-  if ((mouseX >= 100 && mouseX <= 280) && (mouseY >= 50 && mouseY <= 90)) {
-    mouseRed = true;
-    mouseGreen = false;
-    mouseBlue = false;
-  }
-  if ((mouseX >= 100 && mouseX <= 280) && (mouseY >= 150 && mouseY <= 190)) {
-    mouseGreen = true;
-    mouseRed = false;
-    mouseBlue = false;
-  }
-  if ((mouseX >= 100 && mouseX <= 280) && (mouseY >= 250 && mouseY <= 290)) {
-    mouseBlue = true;
-    mouseGreen = false;
-    mouseRed = false;
   }
 }
