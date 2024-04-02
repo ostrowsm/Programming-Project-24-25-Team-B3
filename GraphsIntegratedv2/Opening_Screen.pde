@@ -15,7 +15,7 @@ boolean mouseRed = false;
 boolean mouseGreen = false;
 boolean mouseBlue = false;
 
-// Hubert Stanowski fix the clouds
+// Hubert Stanowski fix the clouds movement, standardize button locations
 
 PImage back; 
 
@@ -27,18 +27,13 @@ int backButtonWidth = 50, backButtonHeight = 40;
 int chartTextX = 425, chartTextY = 35;
 
 int header1X = 100, header1Y = 170, headerHeight = 45, header1Width = 315;
-int chartText1X = 300;
-int backButton1X = 475;
 
 int header2X = 550, header2Y = 170, header2Width = 345;
+
+int chartText1X = 300;
 int chartText2X = 275;
-int backButton2X = 900;
-
 int chartText3X = 600;
-int backButton3X = 130;
-
 int chartText4X = 375;
-int backButton4X = 875;
 
 int whichEvent = 0;
 
@@ -48,7 +43,7 @@ PImage header, bg, bg2;
 
 void setup() {
   //Jan
-  frameRate(80);
+  frameRate(100);
   size(1200, 800);
   Widget widget1, widget2, widget3, widget4;
   back = loadImage("planeBg.jpeg");
@@ -85,13 +80,13 @@ void draw() {
   {
     windowResize(1500, 825);
     drawHeader1(chartText3X, "Top 50 busiest airports");
-    drawBackButton(backButton3X);
+    drawBackButton(backButtonX);
     draw3();
   } else if(whichEvent == 2){
   
   } else if(whichEvent == 4){
     drawHeader(chartText4X, "Total flights per day");
-    drawBackButton(backButton4X);
+    drawBackButton(backButtonX);
     draw4();
   } else if (whichEvent == 3)  {
     drawHeader(chartTextX, "Charts");
@@ -100,11 +95,11 @@ void draw() {
     drawChart2Button();
   } else if (whichEvent == 5) {
     drawHeader(chartText1X, "Number of delayed flights per day");
-    drawBackButton(backButton1X);
+    drawBackButton(backButtonX);
     draw1();
   } else if (whichEvent == 6) {
     drawHeader(chartText2X, "Number of delayed flights by minutes");
-    drawBackButton(backButton2X);
+    drawBackButton(backButtonX);
     draw2();
   } else if (whichEvent == 0) {
     //Jan
@@ -176,10 +171,10 @@ int events(int mX, int mY) {
   if (mX > backButtonX && mX < backButtonX + backButtonWidth && mY > backButtonY && mY < backButtonY + backButtonHeight) {
     windowResize(1200,800);
     return 0;
-  } else if (mX > backButton3X && mX < backButton3X + backButtonWidth && mY > backButtonY && mY < backButtonY + backButtonHeight) {
+  } else if (mX > backButtonX && mX < backButtonX + backButtonWidth && mY > backButtonY && mY < backButtonY + backButtonHeight) {
     windowResize(1200,800);
     return 0;
-  } else if (mX > backButton4X && mX < backButton4X + backButtonWidth && mY > backButtonY && mY < backButtonY + backButtonHeight) {
+  } else if (mX > backButtonX && mX < backButtonX + backButtonWidth && mY > backButtonY && mY < backButtonY + backButtonHeight) {
     windowResize(1200,800);
     return 0;
   } else if (mX > header1X - 10 && mX < header1X - 10 + header1Width && mY > header1Y - 30 && mY < header1Y - 30 + headerHeight) {
@@ -188,10 +183,10 @@ int events(int mX, int mY) {
   } else if (mX > header2X - 10 && mX < header2X - 10 + header2Width && mY > header2Y - 30 && mY < header2Y - 30 + headerHeight) {
     windowResize(1000,800);
     return 6;
-  } else if (mX > backButton1X && mX < backButton1X + backButtonWidth && mY > backButtonY && mY < backButtonY + backButtonHeight) {
+  } else if (mX > backButtonX && mX < backButtonX + backButtonWidth && mY > backButtonY && mY < backButtonY + backButtonHeight) {
     windowResize(1000,800);
     return 3;
-  } else if (mX > backButton2X && mX < backButton2X + backButtonWidth && mY > backButtonY && mY < backButtonY + backButtonHeight) {
+  } else if (mX > backButtonX && mX < backButtonX + backButtonWidth && mY > backButtonY && mY < backButtonY + backButtonHeight) {
     windowResize(1000,800);
     return 3;
   }
