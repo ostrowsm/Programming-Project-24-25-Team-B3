@@ -64,10 +64,10 @@ void draw3() {
   
   stroke(128, 128, 128);
   line(50, 175, 50, 750); // Y-axis
-  line(50, 750, 1310, 750); // X-axis
+  line(50, 750, 1394, 750); // X-axis
 
   int histogramHeight = 550;
-  int barWidth = 20; 
+  int barWidth = 18; 
 
   // Initialize array to store counts for each airport
   int[] airportCounts = new int[airCode.length];

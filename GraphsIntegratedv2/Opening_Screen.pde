@@ -76,7 +76,7 @@ void draw() {
   //Maria Ostrowska
   if (whichEvent == 1)
   {
-    windowResize(1500, 825);
+    windowResize(1420, 825);
     drawHeader1(chartText3X, "Top 50 busiest airports");
     drawBackButton(backButtonX);
     draw3();
