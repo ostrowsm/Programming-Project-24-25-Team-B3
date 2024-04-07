@@ -46,14 +46,37 @@ class VisualizationScreen {
         return count;
     }
 
-    void drawVisualization() {
+void drawVisualization() {
+    int maxFlights = Math.max(departureFlights, arrivalFlights);
+    int maxHeight = parent.height - 200; // Adjust the available height based on your screen layout
 
-        parent.fill(255, 0, 0);
-        parent.rect(100, 100, 50, departureFlights * 5);
+    int departureBarHeight = (int) parent.map(departureFlights, 0, maxFlights, 0, maxHeight);
+    int arrivalBarHeight = (int) parent.map(arrivalFlights, 0, maxFlights, 0, maxHeight);
+  
+    // x-axis
+    parent.line(150, 150 + maxHeight, 500, 150 + maxHeight);
+    parent.text("Departure                                                                 Arrival", 200, 170 + maxHeight); 
 
-        parent.fill(0, 0, 255); 
-        parent.rect(200, 100, 50, arrivalFlights * 5); 
-    }
+    // y-axis
+    parent.line(150, 150, 150, 150 + maxHeight);
+    parent.text("Flights", 100, 140);
+
+    //departure flights bar
+    parent.fill(255, 0, 0);
+    parent.rect(200, 150 + maxHeight - departureBarHeight, 50, departureBarHeight);
+    parent.textAlign(parent.CENTER, parent.CENTER);
+    parent.fill(0);
+    parent.text(departureFlights, 200 + 25, 140 + maxHeight - departureBarHeight - 5);
+
+    //arrival flights bar
+    parent.fill(0, 0, 255);
+    parent.rect(400, 150 + maxHeight - arrivalBarHeight, 50, arrivalBarHeight);
+    parent.textAlign(parent.CENTER, parent.CENTER);
+    parent.fill(0);
+    parent.text(arrivalFlights, 400 + 25, 140 + maxHeight - arrivalBarHeight - 5);
+}
+
+
 
     void handleMouseClick() {
 
