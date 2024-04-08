@@ -9,6 +9,7 @@ import java.text.ParseException;
 import java.util.*;
 import controlP5.*;
 
+PImage bg;
 ControlP5 cp5;
 PApplet inputScreen;
 ArrayList<Flight> flights = new ArrayList<>();
@@ -20,6 +21,7 @@ CalendarView calendarView; // Add a field to store the instance of CalendarView
 
 void setup() {
     size(1300, 700);
+    bg = loadImage("databg.jpeg");
     inputScreen = this;
     loadFlights("flights_full.csv");
     cp5 = new ControlP5(this);
@@ -34,6 +36,7 @@ void setup() {
 void draw() {
     synchronized(lock) {
         background(240);
+        image (bg, 0, 0);
         fill(0);
         textSize(12);
         textAlign(LEFT, TOP);

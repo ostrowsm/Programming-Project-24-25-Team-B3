@@ -1,3 +1,5 @@
+
+PImage landing;
 class VisualizationScreen {
     PApplet parent;
     int departureFlights;
@@ -9,6 +11,8 @@ class VisualizationScreen {
     CalendarView calendarView; 
 
     VisualizationScreen(PApplet parent, CalendarView calendarView) {
+
+      landing = loadImage("landing.jpeg");
         this.parent = parent;
         this.calendarView = calendarView; // Store the instance of CalendarView
         this.airportCode = calendarView.airportCodeField.getText().toUpperCase();
@@ -47,6 +51,8 @@ class VisualizationScreen {
     }
 
 void drawVisualization() {
+    background(135, 206, 235);
+    image (landing, 0, 0);
     int maxFlights = Math.max(departureFlights, arrivalFlights);
     int maxHeight = parent.height - 200; // Adjust the available height based on your screen layout
 
