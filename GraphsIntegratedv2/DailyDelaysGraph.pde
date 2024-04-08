@@ -72,8 +72,8 @@ class DailyDelaysGraph {
       }
 
       // Draw the data point
-      stroke(0, 0, 255);
-      fill(0, 0, 255);
+      stroke(17, 216, 230);
+      fill(17, 216, 230);
       ellipse(x, y, 5, 5);
       // Draw date labels on the x-axis
       fill(255);
@@ -96,7 +96,7 @@ class DailyDelaysGraph {
          coordinates [height - margin, margin], effectively mapping the data value to a vertical position within the graph
          */
         float prevY = map(delayCounts.get(day - 2), 0, maxDelayCount, height - margin, margin + 100);  //added 100 to scale the graph M
-        stroke(0, 0, 255); // Set the color of the line to blue
+        stroke(17, 216, 230); // Set the color of the line to blue
         line(prevX, prevY, x, y);
         stroke(0); // changing the border color to black, so that the other shapes don't have a blue outline - Maria Ostrowska
       }

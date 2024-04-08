@@ -33,10 +33,12 @@ int chartText2X = 275;
 int chartText3X = 600;
 int chartText4X = 375;
 
+boolean done = false;
+
 int whichEvent = 0;
 
 PFont chartFont, normalFont, stdFont;
-PImage header, bg, bg2;
+PImage header, bg, bg2, bg3;
 
 
 void setup() {
@@ -65,6 +67,7 @@ void setup() {
   header = loadImage("graph screen header.jpeg");
   bg = loadImage("background.jpeg");
   bg2 = loadImage("bg2.jpeg");
+  bg3 = loadImage("background3.jpeg");
 
   setup1();
   setup2();
@@ -81,8 +84,13 @@ void draw() {
     drawBackButton(backButtonX);
     draw3();
   } else if (whichEvent == 2) {
+    if(!done){
+      setup5();
+      done = true;
+    }
+    draw5();
   } else if (whichEvent == 4) {
-    drawHeader(chartText4X, "Total flights per day");
+    drawHeader2(chartText4X, "Total flights per day");
     drawBackButton(backButtonX);
     draw4();
   } else if (whichEvent == 3) {
@@ -100,24 +108,28 @@ void draw() {
     draw2();
   } else if (whichEvent == 0) {
     //Jan
-    background(135, 206, 235);
-    image(back, MIDDLEX, MIDDLEY);
-    textFont(stdFont);
-    for (int i = 0; i<widgetList.size(); i++) {
+   background(135, 206, 235);
+   image(back, MIDDLEX, MIDDLEY);
+   textFont(stdFont);
+   fill(255);
+   frameRate(80);
+   for (int i = 0; i<widgetList.size(); i++) {
       Widget aWidget = (Widget)widgetList.get(i);
       if (airports1 && i == 0) {
-        aWidget.draw();
+           aWidget.draw();
       } else if (date_range && i == 1) {
-        aWidget.draw();
+           aWidget.draw();
       } else if (lateness && i == 2) {
-        aWidget.draw();
+           aWidget.draw();
       } else if (flights_per_day && i == 3) {
-        aWidget.draw();
+           aWidget.draw();
       } else {
-        aWidget.draw();
+           aWidget.draw();
       }
-    }
+   }
+   done = false;
   }
+  loop();
 }
 
 //Maria Ostrowska
@@ -157,6 +169,15 @@ void drawChart2Button() {
 
 void drawHeader1(int chartTextX, String text) {
   image(bg2, 0, 0, 1500, 825);
+  image(header, 0, 0, 1500, 45);
+  textFont(stdFont);
+  fill(255);
+  textAlign(chartTextX, chartTextY);
+  text(text, chartTextX, chartTextY);
+}
+
+void drawHeader2(int chartTextX, String text) {
+  image(bg3, 0, 0, 1500, 825);
   image(header, 0, 0, 1500, 45);
   textFont(stdFont);
   fill(255);
@@ -214,6 +235,7 @@ void mousePressed() {
       case EVENT_BUTTON3:
         date_range = true;
         println("button 3!");
+        whichEvent = 2;
         return;
       case EVENT_BUTTON4:
         flights_per_day = true;
