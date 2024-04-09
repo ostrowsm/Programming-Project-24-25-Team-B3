@@ -72,14 +72,14 @@ void drawVisualization() {
     parent.fill(255, 0, 0);
     parent.rect(200, 150 + maxHeight - departureBarHeight, 50, departureBarHeight);
     parent.textAlign(parent.CENTER, parent.CENTER);
-    parent.fill(0);
+    parent.fill(255);
     parent.text(departureFlights, 200 + 25, 140 + maxHeight - departureBarHeight - 5);
 
     //arrival flights bar
     parent.fill(0, 0, 255);
     parent.rect(400, 150 + maxHeight - arrivalBarHeight, 50, arrivalBarHeight);
     parent.textAlign(parent.CENTER, parent.CENTER);
-    parent.fill(0);
+    parent.fill(255);
     parent.text(arrivalFlights, 400 + 25, 140 + maxHeight - arrivalBarHeight - 5);
     
 }
