@@ -66,7 +66,7 @@ void draw3() {
   line(50, 750, 1310, 750); // X-axis
 
   int histogramHeight = 550;
-  int barWidth = 20; 
+  int barWidth = 18; 
 
   // Initialize array to store counts for each airport
   int[] airportCounts = new int[airCode.length];
