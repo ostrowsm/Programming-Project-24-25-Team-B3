@@ -1,4 +1,4 @@
-
+//Author by Zhang Shihao
 class Flight {
   String iataCodeMarketingAirline, flightNumberMarketingAirline;
   String crsDepTime, depTime, crsArrTime, arrTime, distance;
