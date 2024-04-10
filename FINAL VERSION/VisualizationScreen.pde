@@ -50,6 +50,7 @@ class VisualizationScreen {
         return count;
     }
 
+//John fixed graph
 void drawVisualization() {
     background(135, 206, 235);
     image(landing, 0, 0, 1200, 800);
