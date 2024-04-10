@@ -1,3 +1,4 @@
+//Author by Zhang Shihao
 class Flights implements Comparable<Flights> {
     String iataCode, flightNumber, origin, destination, date;
     boolean cancelled, diverted;
