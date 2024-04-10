@@ -1,3 +1,4 @@
+//Author by Zhang Shihao
 class DateLabelFormatter extends JFormattedTextField.AbstractFormatter {
     private String datePattern = "MM/dd/yyyy";
     private SimpleDateFormat dateFormatter = new SimpleDateFormat(datePattern);
