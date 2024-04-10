@@ -1,4 +1,3 @@
-//Author by Zhang Shihao
 class Airport {
   String origin, originCityName, originState, originWac;
   String dest, destCityName, destState, destWac;
