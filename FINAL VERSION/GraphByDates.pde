@@ -40,7 +40,6 @@ HashMap<String, HashSet<Integer>> loadQueryData2(String fileName) {
   return count;
 }
 
-//Jan
 HashSet<Integer> getFlightsOnDate(String date)
 {
   HashSet<Integer> flightsOnDate = dates.get(date);
@@ -73,7 +72,7 @@ void draw4() {
   line(45, 200, 45, 650); // Y-axis
   line(45, 650, 980, 650); // X-axis
   
-  //Jan
+
   String[] dateStrings = {"1/1/2022 12:00:00 AM", "1/2/2022 12:00:00 AM", "1/3/2022 12:00:00 AM", "1/4/2022 12:00:00 AM", 
   "1/5/2022 12:00:00 AM", "1/6/2022 12:00:00 AM", "1/7/2022 12:00:00 AM", "1/8/2022 12:00:00 AM", "1/9/2022 12:00:00 AM", 
   "1/10/2022 12:00:00 AM", "1/11/2022 12:00:00 AM", "1/12/2022 12:00:00 AM","1/13/2022 12:00:00 AM", 
@@ -90,7 +89,7 @@ void draw4() {
   int barWidth = 800 / intervals.length;
 
 
-  //Jan
+
   int[] flightsOnDateCount = new int[dateStrings.length];
 
   for (int i = 0; i < dateStrings.length; i++)

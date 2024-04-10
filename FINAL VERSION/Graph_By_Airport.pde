@@ -1,3 +1,4 @@
+//Jan Zacarias Garcia
 import java.util.*;
 import java.util.Map;
 import java.util.HashSet;
@@ -24,6 +25,7 @@ HashMap<String, HashSet<Integer>> loadQueryData1(String filename)
 
   return map;
 }
+//Jan Zacarias Garcia
 void setup3() {
   //background(255);
   //size(1470, 840);
@@ -130,7 +132,6 @@ int extractNumber1(String s) {
   }
   return 0;
 }
-
 void drawGradientRect1(int x, int y, int width, int height) {
   for (int i = 0; i < height; i++) {
     float inter = map(i, 0, height, 0, 1);
