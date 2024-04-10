@@ -1,3 +1,4 @@
+//AUthor by Zhang Shihao
 class VisualizationScreen {
     PApplet parent;
     int departureFlights;
