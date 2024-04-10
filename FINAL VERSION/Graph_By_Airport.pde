@@ -4,7 +4,7 @@ import java.util.HashSet;
 import java.util.Arrays;
 
 HashMap<String, HashSet<Integer>> airports;
-// Paste this into the main program when everyone finishes their part
+// Hubert Stanowski
 HashMap<String, HashSet<Integer>> loadQueryData1(String filename)
 {
   String[] lines = loadStrings(filename);
@@ -30,6 +30,8 @@ void setup3() {
   airports = loadQueryData1("flights_full_airports.txt");
   printKeys1();
 }
+
+
 HashSet<Integer> getFlightsByAirport(String airport)
 {
   HashSet<Integer> flightsFromAirport = airports.get(airport);

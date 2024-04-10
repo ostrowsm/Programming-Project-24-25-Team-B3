@@ -1,13 +1,10 @@
 // Hubert Stanowski
 
-// Paste this into main program
 import java.util.*;
 import java.util.Map;
 import java.util.HashSet;
 import java.util.Arrays;
 
-
-// Paste this into the main program when everyone finishes their part
 HashMap<String, HashSet<Integer>> loadQueryData(String fileName)
 {
   String[] lines = loadStrings(fileName);

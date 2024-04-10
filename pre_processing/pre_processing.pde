@@ -3,7 +3,6 @@
 import java.util.Map;
 
 
-
 String convert(String date)
 {
   if (date.length() == 1)
@@ -29,24 +28,23 @@ int getDelay(String scheduled, String actual)
 {
   if (actual == "")
     return 0;
-  
+
   scheduled = convert(scheduled);
   actual = convert(actual);
-  
-  int schH = Integer.parseInt(scheduled.substring(0,2));
-  int schM = Integer.parseInt(scheduled.substring(2,4));
-  
-  int actH = Integer.parseInt(actual.substring(0,2));
-  int actM = Integer.parseInt(actual.substring(2,4));
-  
+
+  int schH = Integer.parseInt(scheduled.substring(0, 2));
+  int schM = Integer.parseInt(scheduled.substring(2, 4));
+
+  int actH = Integer.parseInt(actual.substring(0, 2));
+  int actM = Integer.parseInt(actual.substring(2, 4));
+
   int schTotal = schH * 60 + schM;
   int actTotal = actH * 60 + actM;
-  
+
   if (actTotal <= schTotal)
     return 0;
-  
+
   return actTotal - schTotal;
-  
 }
 
 void setup()
@@ -72,11 +70,11 @@ void setup()
     String actual = current[16];
     String cancelled = current[17];
     String delay = Integer.toString(getDelay(scheduled, actual));
-    
+
     if (airports.get(origin) == null)
       airports.put(origin, new ArrayList());
     airports.get(origin).add(i);
-    
+
     if (airports.get(dest) == null)
       airports.put(dest, new ArrayList());
     airports.get(dest).add(i);
@@ -88,12 +86,11 @@ void setup()
     if (cancelled.equals("1") || cancelled.equals("1.00"))
     {
       delays.get("CANCELLED").add(i);
-    }
-    else
+    } else
     {
       if (delays.get(delay) == null)
-       delays.put(delay, new ArrayList());
-    delays.get(delay).add(i);
+        delays.put(delay, new ArrayList());
+      delays.get(delay).add(i);
     }
   }
 
@@ -123,7 +120,7 @@ void setup()
   }
 
   outputDates.close();
-  
+
   PrintWriter outputDelays;
   outputDelays = createWriter("processed/" + fileName + "/" + fileName + "_delays" + ".txt");
 
@@ -144,5 +141,5 @@ void setup()
 
 void draw()
 {
-  background(0,0,255);
+  background(0, 0, 255);
 }
