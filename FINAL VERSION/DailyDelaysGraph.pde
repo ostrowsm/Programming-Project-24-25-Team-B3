@@ -46,7 +46,7 @@ class DailyDelaysGraph {
     int numberOfDays = delayCounts.size();
     // radius within which to detect mouse proximity to a point
     float hitRadius = 10;
-    //background(255); // clear the background to redraw -> commented by M
+    //background(255);
     // Draw x and y axes
     stroke(255); // Set the line color to white
     line(margin, height - margin - 80, margin, margin + 80); // Y-axis, line(startX, startY, endX, endY) ->  added 80 to y2 and subtracted 80 from y1 to scale the graph M
@@ -65,10 +65,9 @@ class DailyDelaysGraph {
 
       // check if the mouse is close to this point
       if (dist(mouseX, mouseY, x, y) < hitRadius) {
-        fill(255); // used for setting color for shapes, in this case, the color is black -> not really, this decides which color are the x labels ^^"
+        fill(255); // used for setting color for x labels
         // display th edelay count above and to the right of the point
         text(delayCounts.get(day-1) + " delays", x + 5, y - 5);
-        //fill(255, 0, 0); -> doesn't do anything or at least not that i have noticed
       }
 
       // Draw the data point
